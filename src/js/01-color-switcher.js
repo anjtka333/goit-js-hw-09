@@ -1,1 +1,31 @@
+const refs = {
+  startBtn: document.querySelector('button[data-start]'),
+  stopBtn: document.querySelector('button[data-stop]'),
+  body: document.querySelector('body'),
+};
+const TIME = 5000;
+let chandgeColorByTime = null;
+const getRandomHexColor = function () {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
 
+let chandgeColor = function () {
+  refs.body.style.backgroundColor = getRandomHexColor();
+};
+// chandgeColorByTime = setInterval(chandgeColor, TIME); // чому таке присвоєння приводить до одночасного виклику ф-ції??
+
+refs.startBtn.addEventListener('click', function () {
+  if (!chandgeColorByTime) {
+    chandgeColorByTime = setInterval(chandgeColor, TIME);
+    console.log(chandgeColorByTime);
+    refs.startBtn.disabled = typeof !chandgeColorByTime;
+    refs.stopBtn.disabled = !typeof chandgeColorByTime;
+  } else {
+  }
+});
+refs.stopBtn.addEventListener('click', () => {
+  clearInterval(chandgeColorByTime);
+  refs.stopBtn.disabled = typeof chandgeColorByTime;
+  refs.startBtn.disabled = !typeof chandgeColorByTime;
+  chandgeColorByTime = null;
+});
