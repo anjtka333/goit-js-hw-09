@@ -16,9 +16,10 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
+  timeLeft: 0,
   onClose(selectedDates) {
     let timeleftMS = selectedDates.getTime() - Date.now();
-    let timeLeft = convertMs(selectedDates.getTime() - Date.now());
+    this.timeLeft = convertMs(selectedDates.getTime() - Date.now());
     if (timeleftMS < 0) {
       window.alert('Please choose a date in the future');
     } else if (timeleftMS >= 0) {
@@ -31,18 +32,17 @@ const options = {
       ];
     }
   },
-  onStart([days, hours, minutes, seconds]) {
+  onStart() {
     setInterval(() => {
-      options.onClose();
-      console.log(this.onClose());
+      seconds.innerHTML = addLeadingZero(timeLeft.seconds);
     }, 1000);
   },
-  //   maxDate: new Date().fp_incr(14),
-  //   getDifDate(date) {
-  //     new Date().fp_incr(date);
-  //   },
+  maxDate: new Date().fp_incr(14),
+  getDifDate(date) {
+    new Date().fp_incr(date);
+  },
 };
-const myInput = document.querySelector('#date-selector');
+const myInput = document.querySelector('#datetime-picker');
 flatpickr(myInput, options);
 const fp = flatpickr(myInput, {});
 const calendars = flatpickr('.calendar', {});
@@ -70,4 +70,6 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-startBtn.addEventListener('click', () => {});
+startBtn.addEventListener('click', () => {
+  options.onStart();
+});
