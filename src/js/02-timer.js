@@ -20,7 +20,7 @@ const options = {
   minuteIncrement: 1,
   onClose(selectedDates) {
     if (selectedDates < 0) {
-      Report.warning('Please choose a date in the future');
+      Report.warning('Please choose a date in the future', '', 'Ok');
       return false;
     } else if (selectedDates >= 0) {
       startBtn.disabled = false;
