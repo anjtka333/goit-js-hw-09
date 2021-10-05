@@ -26,6 +26,10 @@
     "sass": "^1.32.8"
   },
   "dependencies": {
-    "flatpickr": "^4.6.9"
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.1.1",
+    "flatpickr": "^4.6.9",
+    "notiflix": "^3.1.0",
+    "popper.js": "^1.16.1"
   }
 }

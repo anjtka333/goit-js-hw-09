@@ -5,33 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Countdown timer</title>
     <link rel="stylesheet" href="css/common.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
   </head>
   <body>
-    <p><a href="index.html">Go back</a></p>
+  <p><a href="index.html">Go back</a></p>
+  <div class="input-group mb-3">
+    <input class="form-control" type="date" id="datetime-picker" />
+    <span class="input-group-text">&#128197;</span>
+    <button class="btn btn-primary" type="button" data-start>Start</button>
+  </div>
 
-  <input type="text" id="datetime-picker" />
-  <button type="button" data-start>Start</button>
   
   <div class="timer">
     <div class="field">
-      <span class="value" data-days>00</span>
-      <span class="label">Days</span>
+      <span class="value display-4" data-days>00</span>
+      <span class="label display-6">Days</span>
     </div>
     <div class="field">
-      <span class="value" data-hours>00</span>
-      <span class="label">Hours</span>
+      <span  class="value display-4" data-hours>00</span>
+      <span class="label display-6">Hours</span>
     </div>
     <div class="field">
-      <span class="value" data-minutes>00</span>
-      <span class="label">Minutes</span>
+      <span  class="value display-4" data-minutes>00</span>
+      <span class="label display-6">Minutes</span>
     </div>
     <div class="field">
-      <span class="value" data-seconds>00</span>
-      <span class="label">Seconds</span>
+      <span  class="value display-4" data-seconds>00</span>
+      <span class="label display-6">Seconds</span>
     </div>
   </div>
-
-
     <script src="js/02-timer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
   </body>
 </html>

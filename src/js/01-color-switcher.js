@@ -12,20 +12,21 @@ const getRandomHexColor = function () {
 let chandgeColor = function () {
   refs.body.style.backgroundColor = getRandomHexColor();
 };
-// chandgeColorByTime = setInterval(chandgeColor, TIME); // чому таке присвоєння приводить до одночасного виклику ф-ції??
+// chandgeColorByTime = function () {
+//   setInterval(chandgeColor, TIME);
+// }; // чому таке присвоєння приводить до одночасного виклику ф-ції??
 
 refs.startBtn.addEventListener('click', function () {
   if (!chandgeColorByTime) {
     chandgeColorByTime = setInterval(chandgeColor, TIME);
     console.log(chandgeColorByTime);
-    refs.startBtn.disabled = typeof !chandgeColorByTime;
-    refs.stopBtn.disabled = !typeof chandgeColorByTime;
-  } else {
+    refs.startBtn.disabled = true;
+    refs.stopBtn.disabled = false;
   }
 });
 refs.stopBtn.addEventListener('click', () => {
   clearInterval(chandgeColorByTime);
-  refs.stopBtn.disabled = typeof chandgeColorByTime;
-  refs.startBtn.disabled = !typeof chandgeColorByTime;
+  refs.stopBtn.disabled = true;
+  refs.startBtn.disabled = false;
   chandgeColorByTime = null;
 });
