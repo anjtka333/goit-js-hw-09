@@ -8,14 +8,9 @@ let chandgeColorByTime = null;
 const getRandomHexColor = function () {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
-
 let chandgeColor = function () {
   refs.body.style.backgroundColor = getRandomHexColor();
 };
-// chandgeColorByTime = function () {
-//   setInterval(chandgeColor, TIME);
-// }; // чому таке присвоєння приводить до одночасного виклику ф-ції??
-
 refs.startBtn.addEventListener('click', function () {
   if (!chandgeColorByTime) {
     chandgeColorByTime = setInterval(chandgeColor, TIME);
